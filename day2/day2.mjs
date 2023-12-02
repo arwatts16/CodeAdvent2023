@@ -1,5 +1,5 @@
-import {FilePaths, createGameMap, getPossibleGames} from './util.mjs';
-import {addArrayNumbers, readFile} from '../util.mjs'
+import {FilePaths, createGameMap, getMinRequired, getPossibleGames} from './util.mjs';
+import {addArrayNumbers, multArrayNumbers, readFile} from '../util.mjs'
 
 // ------------------- PROLOGUE ------------------- //
 
@@ -10,6 +10,8 @@ const testInput = readFile(FilePaths.ACTUAL_INPUT);
 const inputArr = testInput.split('\n');
 
 /**
+ * Put the games into a format that we can easily parse over and get data from
+ * 
  * {
  *  id1: [{
  *   red: count,
@@ -31,8 +33,26 @@ const GameMap = createGameMap(inputArr);
 
 // ------------------- PART ONE ------------------- //
 
+// Get an array of game id's that are possible
 const possibleGames = getPossibleGames(GameMap);
 
+// Add up all of those numbers
 const total1 = addArrayNumbers(possibleGames);
 
-console.log('Part One Total: ', total1)
+console.log('Part One Total: ', total1);
+
+// ------------------- PART ONE ------------------- //
+
+
+
+// ------------------- PART TWO ------------------- //
+
+// Calculate the min number of cubes needed for each game, then multiply them together
+const minRequired = getMinRequired(GameMap);
+
+// Add up all those numbers in the array
+const total2 = addArrayNumbers(minRequired);
+
+console.log('Part Two Total: ', total2);
+
+// ------------------- PART TWO ------------------- //

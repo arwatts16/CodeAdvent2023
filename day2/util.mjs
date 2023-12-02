@@ -4,7 +4,6 @@
  */
 export const FilePaths = {
     TEST_INPUT_1: './day2/testInput.txt',
-    TEST_INPUT_2: './day2/testInput2.txt',
     ACTUAL_INPUT: './day2/actualInput.txt'
 };
 
@@ -67,6 +66,12 @@ export const createGameMap = function(inputArr) {
 }
 
 
+/**
+ * Takes in the game map and returns a list of game id's that are possible according to the max
+ * number of each cube color
+ * @param {Object<string, Array<Object<string, number>>>} gameMap 
+ * @returns {Array<number>}
+ */
 export const getPossibleGames = function(gameMap) {
     const gameIds = Object.keys(gameMap);
     const possibleGames = [];
@@ -86,7 +91,6 @@ export const getPossibleGames = function(gameMap) {
     return possibleGames;
 }
 
-
 /**
  * Checks the number of cubes found in a game against the number possible for each color. Returns
  * whether it is possible for a game to have happened.
@@ -97,4 +101,32 @@ export const getPossibleGames = function(gameMap) {
  */
 export const isGamePossible = function(red, green, blue) {
     return red <= MaxNum.RED && green <= MaxNum.GREEN && blue <= MaxNum.BLUE;
+}
+
+
+/**
+ * 
+ * @param {Object<string, Array<Object<string, number>>>} gameMap 
+ * @returns {Array<number>}
+ */
+export const getMinRequired = function(gameMap) {
+    const gameIds = Object.keys(gameMap);
+    const maxPowers = [];
+
+    gameIds.forEach((gameId) => {
+        const game = gameMap[gameId];
+        let maxRed = 0;
+        let maxBlue = 0;
+        let maxGreen = 0;
+
+        const gamePossible = game.forEach((round) => {
+            if (maxRed < round.red) maxRed = round.red;
+            if (maxBlue < round.blue) maxBlue = round.blue;
+            if (maxGreen < round.green) maxGreen = round.green;
+        });
+
+        maxPowers.push(maxRed * maxBlue * maxGreen);
+    });
+
+    return maxPowers;
 }

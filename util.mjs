@@ -24,3 +24,13 @@ export const addArrayNumbers = function(numArr) {
 
     return total;
 };
+
+
+/**
+ * Multiply up all the numbers in the Array
+ * @param {Array<number>} numArr
+ * @returns {number}
+ */
+export const multArrayNumbers = function(numArr) {
+   return numArr.reduce((acc, value) => acc * value, 1);
+};
