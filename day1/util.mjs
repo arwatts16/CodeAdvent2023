@@ -1,7 +1,3 @@
-import fs from 'fs';
-import path from 'path';
-
-
 /**
  * Possible test files
  * @type {Object<string, string>}
@@ -38,16 +34,6 @@ export const Integers = {
 export const isNumber = function(value){
     const num = Number(value);
     return !isNaN(num);
-};
-
-
-/**
- * Read in the file to the specified path
- * @param {string} filePath 
- * @returns {string} the file contents
- */
-export const readFile = function(filePath) {
-    return fs.readFileSync(path.resolve(filePath), 'utf8');
 };
 
 
