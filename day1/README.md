@@ -1,4 +1,4 @@
-# Day 1
+# Day 1 - Trebuchet?!
 https://adventofcode.com/2023/day/1 <br>
 Stars Earned: 2
 

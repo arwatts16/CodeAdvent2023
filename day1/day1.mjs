@@ -1,5 +1,5 @@
-import {FilePaths, toNumStringOnlyArray, toTwoDigitNumberArray, addArrayNumbers, stringArrToNumberArr} from './util.mjs';
-import {readFile} from '../util.mjs'
+import {FilePaths, toNumStringOnlyArray, toTwoDigitNumberArray, stringArrToNumberArr} from './util.mjs';
+import {readFile, addArrayNumbers} from '../util.mjs'
 
 // ------------------- PROLOGUE ------------------- //
 

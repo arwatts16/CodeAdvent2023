@@ -126,18 +126,3 @@ export const toTwoDigitNumberArray = function(numStringArr) {
 
     return numArr;
 };
-
-
-/**
- * Add up all the numbers in the Array
- * @param {Array<number>} numArr
- * @returns {number}
- */
-export const addArrayNumbers = function(numArr) {
-    let total = 0;
-    numArr.forEach((num) => {
-        total += num;
-    });
-
-    return total;
-};
